@@ -1310,6 +1310,12 @@
 }
 </style>
 <style>
+/* Kundenstimmen: Karten nur so hoch wie ihr Text */
+.testi-track { align-items: flex-start; }
+@media (max-width: 960px) { .testi-card { flex-basis: 86vw; padding: 20px 18px; gap: 16px; } .testi-q { font-size: 18px; line-height: 1.5; } #testimonials .testi-viewport { margin-top: 36px; } }
+/* Nichts darf seitlich über den Bildschirm hinausragen (sonst zoomt Safari heraus) */
+html, body { overflow-x: hidden; overflow-x: clip; }
+#grow, .nb-wrap { overflow: hidden; overflow: clip; }
 /* Mobiles Menü */
 .nav-toggle { display: none; }
 @media (max-width: 960px) {
