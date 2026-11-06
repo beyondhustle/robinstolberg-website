@@ -1,0 +1,29 @@
+# Netlify Konfiguration für robinstolberg.de
+# Netlify unterscheidet bei Pfaden zwischen Gross und Kleinschreibung.
+# Deshalb sind alle Dateinamen klein geschrieben.
+
+# Kurzlinks auf die Guides (zum Beispiel für Mails und Danke Seiten)
+[[redirects]]
+  from = "/live-breathwork-guide"
+  to = "/live-breathwork-guide.pdf"
+  status = 301
+
+[[redirects]]
+  from = "/online-breathwork-guide"
+  to = "/online-breathwork-guide.pdf"
+  status = 301
+
+# Alter Dateiname mit Grossbuchstaben, damit bereits verschickte Links weiter funktionieren
+[[redirects]]
+  from = "/Online-Breathwork-Guide.pdf"
+  to = "/online-breathwork-guide.pdf"
+  status = 301
+
+# Danke Seite für Käufer des BreathWorking Space.
+# Liegt bewusst in einem eigenen Netlify Projekt (nicht in diesem Repository),
+# damit die Gruppen Links nicht öffentlich auf GitHub stehen. Adresse bleibt gleich.
+[[redirects]]
+  from = "/danke-breathworking-space"
+  to = "https://superb-marshmallow-ad336f.netlify.app/"
+  status = 200
+  force = true
