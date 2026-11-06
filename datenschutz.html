@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutz — Robin Stolberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5EFE4;
+      --sand:  #E4D9CA;
+      --dark:  #17150f;
+      --mid:   #1e1c14;
+      --terra: #B8925A;
+      --terra-l: #CFAE78;
+      --muted: #8B7B6A;
+      --text:  #1A1208;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      padding: 22px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(26,26,20,.96);
+      backdrop-filter: blur(14px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 500;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: rgba(245,239,228,.65);
+      text-decoration: none;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .btn {
+      display: inline-block;
+      padding: 11px 26px;
+      background: var(--terra);
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background .22s, transform .22s, box-shadow .22s;
+    }
+    .btn:hover {
+      background: var(--terra-l);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184,146,90,.3);
+    }
+    .nav-links a.btn { transition: background .22s, transform .22s, box-shadow .22s; }
+    .nav-links a.btn:hover { color: var(--dark); }
+
+    /* ── PAGE CONTENT ── */
+    .page-header {
+      background: var(--dark);
+      padding: 140px 72px 72px;
+    }
+    .page-header-label {
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.05;
+    }
+
+    .page-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 72px 100px;
+    }
+
+    .impr-section {
+      margin-bottom: 48px;
+    }
+    .impr-section:last-child { margin-bottom: 0; }
+
+    .impr-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(26,18,8,.1);
+    }
+
+    .impr-section p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: #4A3E35;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+    .impr-section p:last-child { margin-bottom: 0; }
+
+    .impr-section a {
+      color: var(--terra);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184,146,90,.3);
+      transition: border-color .2s;
+    }
+    .impr-section a:hover { border-color: var(--terra); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(245,239,228,.07);
+    }
+    .foot-top {
+      padding: 44px 72px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 32px;
+    }
+    .foot-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .foot-nav {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+    .foot-nav a {
+      font-size: 14px;
+      color: rgba(245,239,228,.5);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color .2s;
+    }
+    .foot-nav a:hover { color: var(--cream); }
+    .foot-social {
+      list-style: none;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+    .foot-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(245,239,228,.25);
+      border-radius: 50%;
+      color: rgba(245,239,228,.55);
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .foot-social a:hover { border-color: var(--cream); color: var(--cream); }
+    .foot-social svg { width: 16px; height: 16px; fill: currentColor; }
+    .foot-divider {
+      height: 1px;
+      background: rgba(245,239,228,.08);
+      margin: 0 72px;
+    }
+    .foot-bottom {
+      padding: 20px 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .foot-legal { display: flex; gap: 24px; }
+    .foot-legal a {
+      font-size: 12px;
+      color: rgba(245,239,228,.55);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .foot-legal a:hover { color: var(--cream); }
+    .foot-legal a.active { color: rgba(245,239,228,.9); }
+    .foot-copy { font-size: 12px; color: rgba(245,239,228,.25); }
+
+    @media (max-width: 960px) {
+      nav { padding: 18px 28px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .page-header { padding: 120px 32px 56px; }
+      .page-content { padding: 56px 32px 80px; }
+      .foot-top { grid-template-columns: 1fr; gap: 24px; padding: 40px 28px; }
+      .foot-nav { flex-wrap: wrap; gap: 20px; }
+      .foot-social { justify-content: flex-start; }
+      .foot-divider { margin: 0 28px; }
+      .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px 28px; }
+    }
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.btn{border-radius:40px!important}
+.lang-switch{position:relative;margin-left:14px;display:inline-flex;align-items:center;background:rgba(245,239,228,.08);border:1px solid rgba(245,239,228,.25);border-radius:40px;padding:3px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color .2s}
+.lang-switch:hover{border-color:rgba(245,239,228,.5)}
+.lang-switch-thumb{position:absolute;top:3px;left:3px;width:28px;height:calc(100% - 6px);background:var(--terra);border-radius:40px;transition:transform .25s ease}
+.lang-switch[data-lang="en"] .lang-switch-thumb{transform:translateX(28px)}
+.lang-opt{position:relative;z-index:1;width:28px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.05em;color:rgba(245,239,228,.55);transition:color .25s ease}
+.lang-switch[data-lang="de"] .lang-opt[data-l="de"]{color:var(--dark)}
+.lang-switch[data-lang="en"] .lang-opt[data-l="en"]{color:var(--dark)}
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Robin Stolberg</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about" data-en="About Robin">Über Robin</a></li>
+      <li><a href="index.html#event">Events</a></li>
+      <li><a href="index.html#videos" data-en="Voices">Stimmen</a></li>
+      <li><a href="index.html#contact" class="btn" data-en="Let's talk">Lass uns reden</a></li>
+    </ul>
+    <button id="lang-toggle" class="lang-switch" type="button" aria-label="Switch language" data-lang="de" style="margin-left:20px"><span class="lang-switch-thumb"></span><span class="lang-opt" data-l="de">DE</span><span class="lang-opt" data-l="en">EN</span></button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="page-header-label" data-en="Legal">Rechtliches</p>
+    <h1 data-en="Privacy Policy">Datenschutz&shy;erklärung</h1>
+  </div>
+
+  <!-- CONTENT -->
+  <main class="page-content">
+
+    <div class="impr-section">
+      <h2 data-en="1. Privacy at a glance">1. Datenschutz auf einen Blick</h2>
+      <p><strong data-en="General notes">Allgemeine Hinweise</strong></p>
+      <p data-en="The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to personally identify you.">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+    </div>
+
+    <div class="impr-section">
+      <h2 data-en="2. Controller">2. Verantwortlicher</h2>
+      <p>Self-Mastery Tools LLC<br>
+         30 N Gould St Ste R, 82801 Sheridan<br>
+         E-Mail: <a href="mailto:info@robinstolberg.de">info@robinstolberg.de</a><br>
+         <span data-en="Phone">Telefon</span>: +41 77 274 25 86</p>
+    </div>
+
+    <div class="impr-section">
+      <h2 data-en="3. Data collection on this website">3. Datenerfassung auf dieser Website</h2>
+      <p><strong data-en="Contact form">Kontaktformular</strong></p>
+      <p data-en="If you send us inquiries via the contact form, your details from the inquiry form, including the contact details you provide there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not pass on this data without your consent.">Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+      <p><strong>Newsletter</strong></p>
+      <p data-en="If you subscribe to the newsletter, your email address will be transmitted to and stored by SendFox (AppSumo Inc., USA). This is based on your consent (Art. 6 (1) (a) GDPR). Consent can be withdrawn at any time via the unsubscribe link in the newsletter.">Wenn Sie den Newsletter abonnieren, wird Ihre E-Mail-Adresse an SendFox (AppSumo Inc., USA) übermittelt und dort gespeichert. Dies geschieht auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Die Einwilligung kann jederzeit widerrufen werden über den Abmeldelink im Newsletter.</p>
+      <p>Google Analytics</p>
+      <p data-en="This website uses Google Analytics, a web analytics service by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. Google Analytics uses cookies that enable an analysis of your use of the website. The information generated by the cookie is transmitted to and stored on a Google server in the USA. You can prevent collection by Google Analytics by clicking the following link:">Diese Website nutzt Google Analytics, einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website ermöglichen. Die durch den Cookie erzeugten Informationen werden an einen Server von Google in den USA übertragen und dort gespeichert. Sie können die Erfassung durch Google Analytics verhindern, indem Sie auf folgenden Link klicken: <a href="javascript:void(0)" data-en="Disable Google Analytics">Google Analytics deaktivieren</a>. <span data-en="For more information on how Google Analytics handles user data, see Google's privacy policy:">Weitere Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von Google:</span> <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">https://support.google.com/analytics/answer/6004245</a></p>
+    </div>
+
+    <div class="impr-section">
+      <h2>4. Cookies</h2>
+      <p data-en="This website uses cookies. Cookies are small text files that your browser stores on your computer. You can set your browser so that you are informed when cookies are set and only allow cookies on a case-by-case basis.">Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die Ihr Browser auf Ihrem Rechner ablegt. Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben.</p>
+    </div>
+
+    <div class="impr-section">
+      <h2 data-en="5. Your rights">5. Ihre Rechte</h2>
+      <p data-en="You have the right at any time to free information about your stored personal data, its origin and recipients. You also have the right to have this data corrected or deleted. For this and any further questions on the subject of data protection, you may contact us at any time:">Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger. Sie haben außerdem ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden: <a href="mailto:info@robinstolberg.de">info@robinstolberg.de</a></p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-top">
+      <a href="index.html" class="foot-logo">Robin Stolberg</a>
+      <ul class="foot-nav">
+        <li><a href="index.html#about" data-en="About Robin">Über Robin</a></li>
+        <li><a href="index.html#event">Events</a></li>
+        <li><a href="index.html#videos" data-en="Voices">Stimmen</a></li>
+        <li><a href="index.html#contact" data-en="Contact">Kontakt</a></li>
+      </ul>
+      <ul class="foot-social">
+        <li><a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a></li>
+        <li><a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a></li>
+        <li><a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+    <div class="foot-divider"></div>
+    <div class="foot-bottom">
+      <div class="foot-legal">
+        <a href="impressum.html" data-en="Imprint">Impressum</a>
+        <a href="datenschutz.html" class="active" data-en="Privacy Policy">Datenschutz</a>
+      </div>
+      <span class="foot-copy">© 2026 Robin Stolberg · Beyond Hustle</span>
+    </div>
+  </footer>
+
+  <script>
+(function(){
+  var btn = document.getElementById('lang-toggle');
+  if (!btn) return;
+  var currentLang = 'de';
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      if (el.dataset.de === undefined) el.dataset.de = el.textContent;
+      el.textContent = lang === 'en' ? el.dataset.en : el.dataset.de;
+    });
+    btn.dataset.lang = lang;
+    currentLang = lang;
+  }
+  btn.addEventListener('click', function(){ applyLang(currentLang === 'en' ? 'de' : 'en'); });
+})();
+  </script>
+
+  <template id="__bundler_thumbnail" data-bg-color="#1a1a14">
+    <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="500" fill="#1a1a14"/>
+      <rect x="72" y="140" width="180" height="3" rx="1" fill="#B8925A" opacity="0.8"/>
+      <rect x="72" y="165" width="380" height="28" rx="2" fill="#F5EFE4" opacity="0.9"/>
+      <rect x="72" y="215" width="420" height="8" rx="2" fill="#F5EFE4" opacity="0.18"/>
+      <rect x="72" y="233" width="380" height="8" rx="2" fill="#F5EFE4" opacity="0.13"/>
+      <rect x="72" y="260" width="200" height="14" rx="2" fill="#F5EFE4" opacity="0.45"/>
+      <rect x="72" y="284" width="440" height="8" rx="2" fill="#F5EFE4" opacity="0.12"/>
+      <rect x="72" y="302" width="400" height="8" rx="2" fill="#F5EFE4" opacity="0.12"/>
+      <rect x="72" y="330" width="200" height="14" rx="2" fill="#F5EFE4" opacity="0.45"/>
+      <rect x="72" y="354" width="380" height="8" rx="2" fill="#F5EFE4" opacity="0.12"/>
+    </svg>
+  </template>
+</body>
+</html>
