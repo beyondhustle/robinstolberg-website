@@ -1307,13 +1307,32 @@
   }
 }
 </style>
+<style>
+/* Mobiles Menü */
+.nav-toggle { display: none; }
+@media (max-width: 960px) {
+  .lang-switch { margin-left: auto; }
+  .nav-toggle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; width: 40px; height: 40px; margin-left: 6px; padding: 0; background: none; border: 0; cursor: pointer; flex: none; }
+  .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--cream); transition: transform .25s ease; }
+  .nav-toggle:focus-visible { outline: 2px solid var(--terra); outline-offset: 2px; border-radius: 4px; }
+  nav.menu-open { background: rgb(23,17,13); }
+  nav.menu-open .nav-toggle span:first-child { transform: translateY(3.75px) rotate(45deg); }
+  nav.menu-open .nav-toggle span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+  nav .nav-links { position: absolute; top: 100%; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; margin: 0; padding: 4px 24px 24px; background: rgb(23,17,13); box-shadow: 0 24px 40px rgba(0,0,0,.35); border-top: 1px solid rgba(245,239,228,.08); }
+  nav.menu-open .nav-links { display: flex; }
+  nav .nav-links li, nav .nav-links li:last-child { display: block; }
+  nav .nav-links li a { display: block; padding: 15px 0; font-size: 14px; border-bottom: 1px solid rgba(245,239,228,.08); }
+  nav .nav-links li a.btn { color: var(--dark); margin-top: 20px; padding: 14px 18px; font-size: 12px; text-align: center; border-bottom: 0; white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) { .nav-toggle span { transition: none; } }
+</style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo">Robin Stolberg</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-menu">
       <li><a href="#about" data-en="About Robin">Über Robin</a></li>
       <li><a href="#event">Events</a></li>
       <li><a href="#videos" data-en="Customers">Kunden</a></li>
@@ -1321,6 +1340,7 @@
       <li><a href="private-session.html" class="btn" data-en="FREE NAVIGATION SESSION">FREE NAVIGATION SESSION</a></li>
     </ul>
     <button id="lang-toggle" class="lang-switch" type="button" aria-label="Switch language" data-lang="de"><span class="lang-switch-thumb"></span><span class="lang-opt" data-l="de">DE</span><span class="lang-opt" data-l="en">EN</span></button>
+    <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menü öffnen"><span></span><span></span></button>
   </nav>
 
   <!-- HERO -->
@@ -2257,5 +2277,15 @@
     </svg>
   </template>
 
+<script>
+(function(){
+  var nav=document.getElementById('nav'), t=document.getElementById('nav-toggle'), m=document.getElementById('nav-menu');
+  if(!nav||!t||!m) return;
+  function set(open){ nav.classList.toggle('menu-open',open); t.setAttribute('aria-expanded',open?'true':'false'); t.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen'); }
+  t.addEventListener('click',function(){ set(!nav.classList.contains('menu-open')); });
+  m.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
+})();
+</script>
 </body>
 </html>
