@@ -244,6 +244,23 @@
 .lang-switch[data-lang="de"] .lang-opt[data-l="de"]{color:var(--dark)}
 .lang-switch[data-lang="en"] .lang-opt[data-l="en"]{color:var(--dark)}
 </style>
+<style>
+/* Lange Links umbrechen, damit nichts seitlich übersteht */
+a { overflow-wrap: anywhere; }
+/* Mobile Navigation: alles in einer Zeile */
+@media (max-width: 960px) {
+  nav { padding: 14px 20px !important; gap: 12px; flex-wrap: nowrap; }
+  nav .nav-links { gap: 0 !important; margin: 0; padding: 0; }
+  nav .nav-links li:not(:last-child) { display: none; }
+  nav .nav-logo, nav .nav-links a { white-space: nowrap; }
+}
+@media (max-width: 520px) {
+  nav .nav-logo { font-size: 18px !important; }
+  nav .nav-links a.btn { font-size: 11px !important; padding: 9px 14px !important; letter-spacing: .06em !important; }
+  nav .lang-switch { margin-left: 10px !important; flex: none; }
+  nav .nav-links { margin-left: auto; }
+}
+</style>
 </head>
 <body>
 
