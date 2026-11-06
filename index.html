@@ -457,6 +457,8 @@
       margin: 8px 0 -6px;
     }
     .event-group-label:first-child { margin-top: 0; }
+    .event-star { color: var(--terra); margin-left: 4px; font-size: .7em; vertical-align: super; }
+    .event-footnote { font-size: 13px; line-height: 1.6; color: rgba(245,239,228,.5); margin-top: 18px; max-width: 70ch; }
     .ev-tabs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
     .ev-tab{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:rgba(245,239,228,.03);border:1px solid rgba(245,239,228,.14);border-radius:14px;padding:18px 22px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:background .3s,border-color .3s,transform .3s}
     .ev-tab-k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:rgba(245,239,228,.5)}
@@ -1857,17 +1859,17 @@
   <script>
     let currentLang = 'de';
     const events = [
-      { type:"live", titel:{de:"Live Breathwork Abend \u00b7 Vorarlberg",en:"Live Breathwork Evening \u00b7 Vorarlberg"}, datum:{de:"14. November 2026",en:"November 14, 2026"}, ort:{de:"Vorarlberg",en:"Vorarlberg"}, beschreibung:{de:"Kakao Zeremonie \u00b7 Special Guest: Nadia Cristina",en:"Cacao ceremony \u00b7 Special guest: Nadia Cristina"}, preis:{de:"Infos folgen",en:"Info coming soon"}, link:"https://www.b-balance.at/breath-sound-experience/" },
+      { type:"live", titel:{de:"Live Breathwork Abend \u00b7 Vorarlberg",en:"Live Breathwork Evening \u00b7 Vorarlberg"}, datum:{de:"14. November 2026",en:"November 14, 2026"}, ort:{de:"Vorarlberg",en:"Vorarlberg"}, beschreibung:{de:"Kakao Zeremonie \u00b7 Special Guest: Nadia Cristina",en:"Cacao ceremony \u00b7 Special guest: Nadia Cristina"}, preis:{de:"Infos folgen",en:"Info coming soon"}, link:"https://www.b-balance.at/breath-sound-experience/", partner:true },
       { type:"live", titel:{de:"Plant Medicine Retreat \u00b7 Holland",en:"Plant Medicine Retreat \u00b7 Holland"}, datum:{de:"4. bis 6. Dezember 2026 (noch 2 Pl\u00e4tze frei)",en:"December 4\u20136, 2026 (2 spots left)"}, ort:{de:"Holland",en:"Holland"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Jetzt bewerben",en:"Apply now"}, link:"https://wa.me/message/3WI32AXRP6ZGJ1" },
       { type:"online", titel:{de:"Inner Office Unternehmer Circle",en:"Inner Office Entrepreneur Circle"}, datum:{de:"bi-weekly montags \u00b7 10:00 & 20:00 Uhr",en:"bi-weekly Mondays \u00b7 10:00 am & 8:00 pm"}, ort:{de:"Online via Zoom",en:"Online via Zoom"}, beschreibung:{de:"Transformative Breathwork-Session online via Zoom.",en:"Transformative breathwork session online via Zoom."}, note:{de:"Jetzt unverbindlich testen. Nur f\u00fcr kurze Zeit.",en:"Try it now, no commitment. Limited time only."}, preis: null, link:"https://robinstolberg.de/inner-office" }
     ];
 
     const events2027 = [
-      { type:"live", titel:{de:"Workationclub \u00b7 Koh Phangan",en:"Workation Club \u00b7 Koh Phangan"}, datum:{de:"31. Januar bis 9. Februar 2027",en:"January 31 \u2013 February 9, 2027"}, ort:{de:"Koh Phangan, Thailand",en:"Koh Phangan, Thailand"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Interesse melden",en:"Register interest"}, link:"#ev27-form", internal:true },
-      { type:"live", titel:{de:"M\u00e4nner Retreat \u00b7 Sahara",en:"Men's Retreat \u00b7 Sahara"}, datum:{de:"26. Februar bis 6. M\u00e4rz 2027",en:"February 26 \u2013 March 6, 2027"}, ort:{de:"Marokko, ab Marrakesch",en:"Morocco, from Marrakesh"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Mehr Infos",en:"More info"}, link:"https://www.bodymindgrow.com/das-m%C3%A4nner-retreat" },
+      { type:"live", titel:{de:"Workationclub \u00b7 Koh Phangan",en:"Workation Club \u00b7 Koh Phangan"}, datum:{de:"31. Januar bis 9. Februar 2027",en:"January 31 \u2013 February 9, 2027"}, ort:{de:"Koh Phangan, Thailand",en:"Koh Phangan, Thailand"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Interesse melden",en:"Register interest"}, link:"#ev27-form", internal:true, partner:true },
+      { type:"live", titel:{de:"M\u00e4nner Retreat \u00b7 Sahara",en:"Men's Retreat \u00b7 Sahara"}, datum:{de:"26. Februar bis 6. M\u00e4rz 2027",en:"February 26 \u2013 March 6, 2027"}, ort:{de:"Marokko, ab Marrakesch",en:"Morocco, from Marrakesh"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Mehr Infos",en:"More info"}, link:"https://www.bodymindgrow.com/das-m%C3%A4nner-retreat", partner:true },
       { type:"live", titel:{de:"Innerstellar \u00b7 Holland",en:"Innerstellar \u00b7 Holland"}, datum:{de:"21. bis 27. Juni 2027",en:"June 21\u201327, 2027"}, ort:{de:"Holland",en:"Holland"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Interesse melden",en:"Register interest"}, link:"#ev27-form", internal:true },
-      { type:"live", titel:{de:"M\u00e4nner Retreat \u00b7 Deutschland",en:"Men's Retreat \u00b7 Germany"}, datum:{de:"3. bis 5. September 2027",en:"September 3\u20135, 2027"}, ort:{de:"Deutschland",en:"Germany"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Interesse melden",en:"Register interest"}, link:"#ev27-form", internal:true },
-      { type:"live", titel:{de:"Sahara Retreat mit Breathwork",en:"Sahara Retreat with Breathwork"}, datum:{de:"30. Oktober bis 6. November 2027",en:"October 30 \u2013 November 6, 2027"}, ort:{de:"Marokko, W\u00fcste bei M'hamid",en:"Morocco, desert near M'hamid"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Mehr Infos",en:"More info"}, link:"https://www.bodymindgrow.com/november-retreat-2027" }
+      { type:"live", titel:{de:"M\u00e4nner Retreat \u00b7 Deutschland",en:"Men's Retreat \u00b7 Germany"}, datum:{de:"3. bis 5. September 2027",en:"September 3\u20135, 2027"}, ort:{de:"Wermelskirchen, Deutschland",en:"Wermelskirchen, Germany"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Mehr Infos",en:"More info"}, link:"https://www.alexwirthl.com/intensive", partner:true },
+      { type:"live", titel:{de:"Sahara Retreat mit Breathwork",en:"Sahara Retreat with Breathwork"}, datum:{de:"30. Oktober bis 6. November 2027",en:"October 30 \u2013 November 6, 2027"}, ort:{de:"Marokko, W\u00fcste bei M'hamid",en:"Morocco, desert near M'hamid"}, preis:{de:"Infos folgen",en:"Info coming soon"}, cta:{de:"Mehr Infos",en:"More info"}, link:"https://www.bodymindgrow.com/november-retreat-2027", partner:true }
     ];
 
     function renderEvents() {
@@ -1890,7 +1892,7 @@
         return `
           <div class="event-card${ev.type === 'online' ? ' is-featured' : ''}">
             <div>
-              <h3 class="event-title">${esc(t(ev.titel))}</h3>
+              <h3 class="event-title">${esc(t(ev.titel))}${ev.partner ? '<span class="event-star" aria-hidden="true">*</span>' : ''}</h3>
               <div class="event-meta">${meta}</div>
             </div>
             <div class="event-card-cta">
@@ -1899,15 +1901,17 @@
             </div>
           </div>`;
       };
+      const foot = (arr) => arr.some(ev => ev.partner) ? `<p class="event-footnote">${L === 'en' ? '* I am part of the facilitation team at the marked events, which are hosted by my partners. When you sign up or apply, please mention that you came through me.' : '* Bei den markierten Events und Retreats bin ich als Facilitator mit dabei, veranstaltet werden sie von meinen Partnern. Gib bei deiner Anmeldung oder Bewerbung bitte an, dass du über mich kommst.'}</p>` : '';
       const list = document.getElementById('event-list');
       if (list) {
         const live = events.filter(ev => ev.type !== 'online').map(cardHtml).join('');
         const online = events.filter(ev => ev.type === 'online').map(cardHtml).join('');
         list.innerHTML = (live ? `<p class="event-group-label">Live Sessions</p>${live}` : '')
-          + (online ? `<p class="event-group-label">Online Sessions</p>${online}` : '');
+          + (online ? `<p class="event-group-label">Online Sessions</p>${online}` : '')
+          + foot(events);
       }
       const list27 = document.getElementById('event-list-2027');
-      if (list27) list27.innerHTML = events2027.map(cardHtml).join('');
+      if (list27) list27.innerHTML = events2027.map(cardHtml).join('') + foot(events2027);
       const sel = document.getElementById('ev27-event');
       if (sel) sel.innerHTML = events2027.filter(ev => ev.internal).map(ev => `<option>${esc(t(ev.titel))}</option>`).join('');
     }
