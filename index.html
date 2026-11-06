@@ -1312,7 +1312,23 @@
 <style>
 /* Kundenstimmen: Karten nur so hoch wie ihr Text */
 .testi-track { align-items: flex-start; }
-@media (max-width: 960px) { #testimonials { padding: 44px 0 !important; } .testi-track { align-items: center; animation-duration: 28s !important; } .testi-card { flex-basis: 86vw; padding: 16px 18px; gap: 12px; } .testi-q { font-size: 18px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; } #testimonials .testi-viewport { margin-top: 28px; } }
+.testi-nav { display: none; }
+@media (max-width: 960px) {
+  #testimonials { padding: 44px 0 !important; }
+  #testimonials .testi-viewport { margin-top: 28px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-mask-image: none; mask-image: none; scrollbar-width: none; transition: height .3s ease; }
+  #testimonials .testi-viewport::-webkit-scrollbar { display: none; }
+  #testimonials .testi-track { animation: none !important; transform: none; width: max-content; max-width: none !important; gap: 14px; padding: 0 7vw; align-items: flex-start; }
+  #testimonials .testi-card { flex: 0 0 86vw; padding: 16px 18px; gap: 12px; scroll-snap-align: center; }
+  #testimonials .testi-card:hover { transform: none; background: none; }
+  #testimonials .testi-card.is-dup { display: none; }
+  #testimonials .testi-q { font-size: 18px; line-height: 1.5; }
+  .testi-nav { display: flex; justify-content: center; align-items: center; gap: 22px; margin-top: 18px; }
+  .testi-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--terra); background: transparent; color: var(--terra); display: grid; place-items: center; cursor: pointer; padding: 0; }
+  .testi-arrow svg { width: 20px; height: 20px; }
+  .testi-arrow:disabled { opacity: .3; cursor: default; }
+  .testi-arrow:focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; }
+  .testi-count { font-size: 13px; letter-spacing: .08em; color: rgba(23,17,13,.55); font-variant-numeric: tabular-nums; min-width: 52px; text-align: center; }
+}
 /* Nichts darf seitlich über den Bildschirm hinausragen (sonst zoomt Safari heraus) */
 html, body { overflow-x: hidden; overflow-x: clip; }
 #grow, .nb-wrap { overflow: hidden; overflow: clip; }
@@ -1779,6 +1795,11 @@ html, body { overflow-x: hidden; overflow-x: clip; }
           <p class="testi-role">Online-Marketer & Musiker</p>
         </div>
       </div>
+    </div>
+    <div class="testi-nav">
+      <button class="testi-arrow testi-prev" type="button" aria-label="Vorherige Kundenstimme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      <span class="testi-count" aria-live="polite">1 / 10</span>
+      <button class="testi-arrow testi-next" type="button" aria-label="Nächste Kundenstimme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
     </div>
   </section>
 
@@ -2295,6 +2316,22 @@ html, body { overflow-x: hidden; overflow-x: clip; }
   t.addEventListener('click',function(){ set(!nav.classList.contains('menu-open')); });
   m.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
+})();
+</script>
+<script>
+(function(){
+  var sec=document.getElementById('testimonials'); if(!sec) return;
+  var vp=sec.querySelector('.testi-viewport'), cards=[].slice.call(sec.querySelectorAll('.testi-card'));
+  var half=Math.floor(cards.length/2); cards.forEach(function(c,i){ if(i>=half) c.classList.add('is-dup'); });
+  var real=cards.slice(0,half), prev=sec.querySelector('.testi-prev'), next=sec.querySelector('.testi-next'), count=sec.querySelector('.testi-count');
+  var mq=window.matchMedia('(max-width: 960px)'), idx=0;
+  function current(){ var mid=vp.scrollLeft+vp.clientWidth/2, best=0, d=1e9; real.forEach(function(c,i){ var cm=c.offsetLeft+c.offsetWidth/2, x=Math.abs(cm-mid); if(x<d){d=x;best=i;} }); return best; }
+  function update(){ if(!mq.matches){ vp.style.height=''; return; } idx=current(); count.textContent=(idx+1)+' / '+real.length; prev.disabled=idx===0; next.disabled=idx===real.length-1; vp.style.height=real[idx].offsetHeight+'px'; }
+  function go(i){ i=Math.max(0,Math.min(real.length-1,i)); var c=real[i]; vp.scrollTo({left:c.offsetLeft-(vp.clientWidth-c.offsetWidth)/2,behavior:'smooth'}); }
+  prev.addEventListener('click',function(){ go(idx-1); }); next.addEventListener('click',function(){ go(idx+1); });
+  var t; vp.addEventListener('scroll',function(){ clearTimeout(t); t=setTimeout(update,80); },{passive:true});
+  window.addEventListener('resize',update); if(mq.addEventListener) mq.addEventListener('change',update);
+  update();
 })();
 </script>
 </body>
