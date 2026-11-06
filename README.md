@@ -52,19 +52,15 @@ Die Events auf der Startseite stehen als Liste `const events = [` in `index.html
 
 ## Veröffentlichen
 
-Wichtig: Jeder Deploy ersetzt die komplette Seite. Dateien, die nicht im Ordner liegen, sind danach offline. Deshalb immer den ganzen Ordner veröffentlichen, nie nur eine einzelne Datei.
+Die Seite liegt im privaten GitHub Repository beyondhustle/robinstolberg-website. Netlify (Projekt stately-sunflower-4d2666) ist damit verbunden.
 
-Projekt: stately-sunflower-4d2666 (Projekt ID 0195b0e6-4728-45b3-b545-17f7b341d599)
+1. Änderungen landen über Claude im Repository.
+2. Größere Änderungen kommen zuerst als Pull Request. Netlify baut dafür automatisch eine Vorschau Adresse. Die Live Seite bleibt unverändert.
+3. Passt die Vorschau, wird der Pull Request übernommen. Netlify stellt die Seite dann automatisch auf robinstolberg.de online.
 
-1. Einmalig im Ordner mit dem Projekt verbinden:
-   `npx netlify-cli link --id 0195b0e6-4728-45b3-b545-17f7b341d599`
-2. Testversion erzeugen (noch nicht live, es kommt eine eigene Test Adresse):
-   `npx netlify-cli deploy --dir .`
-3. Test Adresse öffnen und prüfen: alle Seiten, Bilder, beide Guide Links, Sound Alchemy Kaufbutton.
-4. Erst wenn alles stimmt, live schalten:
-   `npx netlify-cli deploy --dir . --prod`
+Jede Übernahme in den Zweig main ist eine Veröffentlichung. Deshalb Änderungen bündeln.
 
-Ordner `.netlify` (entsteht beim Verbinden) nie weitergeben. Er steht schon in `.gitignore`.
+Der Ordner "Robins Webseite Infrastruktur" auf dem Schreibtisch ist nur noch eine Kopie. Nicht mehr per Drag and Drop hochladen, sonst überschreibt er die Version aus GitHub.
 
 ## Sound Alchemy Zahlung
 
