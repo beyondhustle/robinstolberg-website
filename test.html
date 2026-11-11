@@ -154,7 +154,7 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
   <section id="anleitung">
     <div class="wrap">
       <span class="sec-label">So geht der Test</span>
-      <h2 class="sec-title">Eine Minute, eine Zahl, die viel über dich verrät.</h2>
+      <h2 class="sec-title">Die wichtigste KPI, die in keinem Dashboard steht.</h2>
       <div class="video">
         <video controls playsinline preload="none" poster="assets/bolt-test-poster.jpg" aria-label="Video: So machst du den BOLT Test">
           <source src="assets/bolt-test.mp4" type="video/mp4">
@@ -332,9 +332,9 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 
   function showResult(rolle){
     var band, head, text;
-    if (score < 20) { band = 1; head = 'Stressatmung.'; text = 'Dein System läuft auf Gaspedal. Dein Körper ist im Daueralarm, auch wenn du es im Alltag vielleicht gar nicht merkst. Die gute Nachricht: Dieser Wert lässt sich trainieren, und zwar schneller, als du denkst.'; }
-    else if (score <= 30) { band = 2; head = 'Auf dem Weg.'; text = 'Du hast eine solide Basis, aber da geht noch einiges. Mit etwas Training wird dein Nervensystem deutlich belastbarer und du kommst unter Druck schneller wieder runter.'; }
-    else { band = 3; head = 'Funktionale Atmung. Stark.'; text = 'Dein System kann gut zwischen Anspannung und Ruhe wechseln. Das ist eine echte Ressource für dich und dein Business. Halte sie mit regelmäßigem Training.'; }
+    if (score < 20) { band = 1; head = 'Stressatmung.'; text = 'Dein System läuft auf Gaspedal. Du lieferst, entscheidest und hältst alles am Laufen, und dein Körper zahlt dafür mit Daueralarm. Ich kenne das von mir, lange hab ich genau das Leistung genannt. Die gute Nachricht: Diese KPI lässt sich trainieren, schneller als die meisten Zahlen in deinem Business.'; }
+    else if (score <= 30) { band = 2; head = 'Auf dem Weg.'; text = 'Die Basis steht, aber da geht noch einiges. Unter Druck brauchst du wahrscheinlich länger, um wieder runterzukommen, als dir lieb ist. Mit ein paar Minuten Training am Tag bewegt sich diese KPI spürbar, und mit ihr deine Klarheit bei Entscheidungen.'; }
+    else { band = 3; head = 'Funktionale Atmung. Stark.'; text = 'Dein System kann zwischen Vollgas und Ruhe wechseln. Das ist eine Ressource, die viele Unternehmer irgendwann verlieren, ohne es zu merken. Halt sie mit regelmäßigem Training, dann trägt sie dich auch durch die heißen Phasen.'; }
     document.getElementById('result-head').textContent = head;
     document.getElementById('result-score').textContent = 'Dein Wert: ' + score + ' Sekunden';
     document.getElementById('result-text').textContent = text;
