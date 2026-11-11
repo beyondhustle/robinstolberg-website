@@ -2,7 +2,7 @@
 // Umgebungsvariablen in Netlify (niemals ins Repository schreiben):
 //   SENDFOX_TOKEN    persönlicher API Token aus SendFox (Pflicht)
 //   SENDFOX_LIST_ID  ID der Liste (optional; ohne sie wird die Liste "Beyond Hustle ..." gesucht)
-// Tags: bolt-unter-20, bolt-20-30, bolt-ueber-30, Freiheitspaket 2026.
+// Tags: bolt-unter-10, bolt-unter-20, bolt-20-30, bolt-ueber-30, Freiheitspaket 2026.
 // Fehlt ein Tag in SendFox, versucht die Funktion ihn anzulegen.
 
 const API = "https://api.sendfox.com";
@@ -17,6 +17,7 @@ const env = (k) => (globalThis.Netlify?.env?.get?.(k)) ?? process.env[k];
 const json = (status, body) => new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
 
 export function bandTag(sek) {
+  if (sek < 10) return "bolt-unter-10";
   if (sek < 20) return "bolt-unter-20";
   if (sek <= 30) return "bolt-20-30";
   return "bolt-ueber-30";

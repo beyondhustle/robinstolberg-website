@@ -64,22 +64,17 @@ section{padding:64px 24px;scroll-margin-top:64px}
 .steps strong{font-weight:500}
 .note{margin-top:28px;padding:18px 20px;border-left:2px solid var(--terra);background:rgba(184,146,90,.08);font-size:15px;line-height:1.65}
 
-/* Stoppuhr */
+/* Wert eintragen */
 #stoppuhr{text-align:center}
-.timer{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(110px,34vw,180px);line-height:1;color:var(--cream);font-variant-numeric:tabular-nums;margin-top:28px}
-.timer-unit{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra-l);font-weight:600;margin-top:6px}
-.go{margin:32px auto 0;width:168px;height:168px;border-radius:50%;border:none;background:var(--terra);color:var(--dark);font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:grid;place-items:center;transition:background .22s,transform .15s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.go:hover{background:var(--terra-l)}
-.go:active{transform:scale(.97)}
-.go.is-running{background:var(--cream)}
-.timer-actions{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:14px}
-.link-btn{background:none;border:none;color:rgba(245,239,228,.6);font-family:inherit;font-size:14px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:8px}
-.link-btn:hover{color:var(--cream)}
-.manual{margin:36px auto 0;max-width:340px;padding-top:28px;border-top:1px solid rgba(245,239,228,.1)}
-.manual label{display:block;font-size:14px;color:rgba(245,239,228,.65);margin-bottom:10px}
-.manual-row{display:flex;gap:10px}
-.manual input{flex:1;min-width:0;height:48px;padding:0 16px;border-radius:40px;border:1px solid rgba(245,239,228,.25);background:transparent;color:var(--cream);font-family:inherit;font-size:16px;text-align:center}
-.manual .btn{padding:0 22px}
+.entry{margin:32px auto 0;max-width:320px;display:flex;flex-direction:column;align-items:center}
+.entry input{width:100%;height:150px;border:none;border-bottom:1px solid rgba(245,239,228,.25);background:transparent;color:var(--cream);font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(96px,30vw,140px);line-height:1;text-align:center;font-variant-numeric:tabular-nums;-moz-appearance:textfield;border-radius:0}
+.entry input::-webkit-outer-spin-button,.entry input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.entry input::placeholder{color:rgba(245,239,228,.18)}
+.entry input:focus{outline:none;border-bottom-color:var(--terra)}
+.timer-unit{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra-l);font-weight:600;margin-top:12px}
+.entry-hint{font-size:14px;color:rgba(245,239,228,.55);margin:18px 0 26px}
+.entry .btn{width:100%}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Formular */
 .score-pill{display:inline-block;padding:6px 16px;border-radius:40px;background:rgba(184,146,90,.14);color:var(--text);font-size:14px;margin-bottom:18px}
@@ -102,7 +97,7 @@ form .btn{width:100%;margin-top:6px}
 .result-head{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,64px);font-weight:500;line-height:1.05;color:var(--cream);margin-top:6px}
 .result-score{font-size:15px;color:var(--terra-l);margin-top:12px}
 .result-text{font-size:18px;font-weight:300;line-height:1.75;color:rgba(245,239,228,.82);margin-top:18px}
-.scale{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:28px}
+.scale{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:28px}
 .scale span{font-size:12px;line-height:1.35;color:rgba(245,239,228,.5);padding-top:10px;border-top:3px solid rgba(245,239,228,.15)}
 .scale span.is-you{color:var(--cream);border-top-color:var(--terra)}
 .exercise{margin-top:40px;padding:26px 22px;border:1px solid rgba(184,146,90,.45);border-radius:6px}
@@ -160,11 +155,12 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
           <source src="assets/bolt-test.mp4" type="video/mp4">
         </video>
       </div>
+      <p class="lead">Starte das Video und mach einfach mit. Es führt dich durch alle Schritte und zählt die Zeit für dich.</p>
       <ol class="steps">
         <li><span><strong>Setz dich aufrecht hin</strong> und komm kurz zur Ruhe.</span></li>
         <li><span><strong>Atme ein paar Mal ganz normal</strong> durch die Nase ein und aus.</span></li>
         <li><span><strong>Atme normal aus</strong>, nicht extra tief, nicht extra viel.</span></li>
-        <li><span><strong>Halte dir die Nase zu und starte die Stoppuhr.</strong> Stopp, sobald du den ersten deutlichen Drang spürst einzuatmen.</span></li>
+        <li><span><strong>Halte dir die Nase zu.</strong> Das Video zählt die Sekunden mit. Merk dir die Zahl, sobald du den ersten deutlichen Drang spürst einzuatmen.</span></li>
       </ol>
       <p class="note">Danach atmest du einfach normal weiter. Wenn du nach Luft schnappst, hast du zu lange gehalten. Es geht um den ersten deutlichen Drang, nicht um dein Maximum.</p>
     </div>
@@ -172,20 +168,14 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 
   <section id="stoppuhr" class="dark">
     <div class="wrap">
-      <span class="sec-label">Deine Messung</span>
-      <h2 class="sec-title">Ausatmen, Nase zu, Start.</h2>
-      <div class="timer" id="timer" aria-live="off">0</div>
-      <div class="timer-unit">Sekunden</div>
-      <button type="button" class="go" id="go" aria-label="Stoppuhr starten">Start</button>
-      <div class="timer-actions">
-        <button type="button" class="link-btn" id="reset" hidden>Nochmal messen</button>
-      </div>
-      <div class="manual">
-        <label for="manual-sec">Du hast schon gemessen? Trag deinen Wert ein.</label>
-        <div class="manual-row">
-          <input id="manual-sec" type="number" inputmode="numeric" min="1" max="300" step="1" placeholder="Sekunden">
-          <button type="button" class="btn" id="manual-ok">Weiter</button>
-        </div>
+      <span class="sec-label">Dein Wert</span>
+      <h2 class="sec-title">Bei welcher Zahl kam der erste Drang einzuatmen?</h2>
+      <div class="entry">
+        <label for="manual-sec" class="visually-hidden">Deine Sekunden</label>
+        <input id="manual-sec" type="number" inputmode="numeric" min="1" max="300" step="1" placeholder="0" aria-describedby="entry-hint">
+        <div class="timer-unit">Sekunden</div>
+        <p class="entry-hint" id="entry-hint">Kein Drang, bis das Video endet? Dann trag 40 ein.</p>
+        <button type="button" class="btn" id="manual-ok">Weiter zu meinem Ergebnis</button>
       </div>
     </div>
   </section>
@@ -228,7 +218,8 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
       <p class="result-score" id="result-score"></p>
       <p class="result-text" id="result-text"></p>
       <div class="scale" aria-hidden="true">
-        <span data-band="1">unter 20 s<br>Stressatmung</span>
+        <span data-band="0">unter 10 s<br>Alarm</span>
+        <span data-band="1">10 bis 19 s<br>Stressatmung</span>
         <span data-band="2">20 bis 30 s<br>auf dem Weg</span>
         <span data-band="3">über 30 s<br>funktional</span>
       </div>
@@ -244,9 +235,9 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
   <section id="session" hidden>
     <div class="wrap">
       <span class="sec-label">Free Navigation Session</span>
-      <h2 class="sec-title">Du trägst eine Entscheidung mit dir rum?</h2>
-      <p class="lead">Dein Atem zeigt, wie viel Druck auf deinem System liegt. In der Navigation Session schauen wir gemeinsam auf die Entscheidung, die dich gerade festhält. Wir reden, und wir atmen. Du gehst mit mehr Klarheit raus.</p>
-      <ul class="facts"><li>45 Minuten</li><li>online</li><li>kostenlos</li><li>für Unternehmer mit einer Entscheidung</li></ul>
+      <h2 class="sec-title" id="session-title">Du trägst eine Entscheidung mit dir rum?</h2>
+      <p class="lead" id="session-text">Dein Atem zeigt, wie viel Druck auf deinem System liegt. In der Navigation Session schauen wir gemeinsam auf die Entscheidung, die dich gerade festhält. Wir reden, und wir atmen. Du gehst mit mehr Klarheit raus.</p>
+      <ul class="facts"><li>45 Minuten</li><li>online</li><li>kostenlos</li><li>für Unternehmer und Selbstständige</li></ul>
       <a href="/private-session" class="btn">Navigation Session anfragen</a>
     </div>
   </section>
@@ -269,36 +260,19 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
   var params = new URLSearchParams(location.search);
   var quelle = (params.get('quelle') || '').toLowerCase();
 
-  var timerEl = document.getElementById('timer'), go = document.getElementById('go'), reset = document.getElementById('reset');
   var manual = document.getElementById('manual-sec'), manualOk = document.getElementById('manual-ok');
   var formSec = document.getElementById('formular'), scoreShow = document.getElementById('score-show');
-  var start = 0, raf = 0, running = false, score = 0;
+  var score = 0;
 
-  function tick(){ timerEl.textContent = Math.floor((performance.now() - start) / 1000); raf = requestAnimationFrame(tick); }
   function showForm(sec){
     score = sec; scoreShow.textContent = sec;
     formSec.hidden = false;
     setTimeout(function(){ formSec.scrollIntoView({behavior:'smooth', block:'start'}); }, 350);
   }
-  go.addEventListener('click', function(){
-    if (!running) {
-      running = true; start = performance.now(); timerEl.textContent = '0';
-      go.textContent = 'Stopp'; go.classList.add('is-running'); go.setAttribute('aria-label','Stoppuhr stoppen');
-      reset.hidden = true; raf = requestAnimationFrame(tick);
-    } else {
-      running = false; cancelAnimationFrame(raf);
-      var sec = Math.max(1, Math.round((performance.now() - start) / 1000));
-      timerEl.textContent = sec;
-      go.textContent = 'Start'; go.classList.remove('is-running'); go.setAttribute('aria-label','Stoppuhr starten');
-      reset.hidden = false;
-      showForm(sec);
-    }
-  });
-  reset.addEventListener('click', function(){ timerEl.textContent = '0'; reset.hidden = true; go.focus(); });
   function useManual(){
     var n = parseInt(manual.value, 10);
     if (!(n >= 1 && n <= 300)) { manual.focus(); manual.setCustomValidity('Bitte eine Zahl zwischen 1 und 300 eintragen.'); manual.reportValidity(); return; }
-    manual.setCustomValidity(''); timerEl.textContent = n; showForm(n);
+    manual.setCustomValidity(''); manual.blur(); showForm(n);
   }
   manualOk.addEventListener('click', useManual);
   manual.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); useManual(); } });
@@ -316,7 +290,7 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Bitte gib eine gültige E-Mail Adresse ein.');
     if (!rolle) return fail('Bitte wähle aus, was dich am besten beschreibt.');
     if (!fd.get('einwilligung')) return fail('Bitte bestätige die Einwilligung, damit wir dir die Auswertung schicken können.');
-    if (!(score >= 1)) return fail('Bitte miss zuerst deinen Wert oder trag ihn ein.');
+    if (!(score >= 1)) return fail('Bitte trag zuerst deinen Wert ein.');
     btn.disabled = true; btn.textContent = 'Einen Moment';
     try {
       var r = await fetch('/api/bolt', { method:'POST', headers:{'Content-Type':'application/json'},
@@ -332,7 +306,8 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 
   function showResult(rolle){
     var band, head, text;
-    if (score < 20) { band = 1; head = 'Stressatmung.'; text = 'Dein System läuft auf Gaspedal. Du lieferst, entscheidest und hältst alles am Laufen, und dein Körper zahlt dafür mit Daueralarm. Ich kenne das von mir, lange hab ich genau das Leistung genannt. Die gute Nachricht: Diese KPI lässt sich trainieren, schneller als die meisten Zahlen in deinem Business.'; }
+    if (score < 10) { band = 0; head = 'Alarmstufe Rot.'; text = 'Unter 10 Sekunden heißt: Dein System steht unter Dauerstrom. Das ist ein Wert, den du nicht nebenbei weg trainierst, während du weiter Vollgas gibst. Ich kenne Phasen, in denen ich genau so funktioniert habe, und rückblickend war das der Moment, an dem ich hätte anhalten müssen. Nimm diese Zahl ernst.'; }
+    else if (score < 20) { band = 1; head = 'Stressatmung.'; text = 'Dein System läuft auf Gaspedal. Du lieferst, entscheidest und hältst alles am Laufen, und dein Körper zahlt dafür mit Daueralarm. Ich kenne das von mir, lange hab ich genau das Leistung genannt. Die gute Nachricht: Diese KPI lässt sich trainieren, schneller als die meisten Zahlen in deinem Business.'; }
     else if (score <= 30) { band = 2; head = 'Auf dem Weg.'; text = 'Die Basis steht, aber da geht noch einiges. Unter Druck brauchst du wahrscheinlich länger, um wieder runterzukommen, als dir lieb ist. Mit ein paar Minuten Training am Tag bewegt sich diese KPI spürbar, und mit ihr deine Klarheit bei Entscheidungen.'; }
     else { band = 3; head = 'Funktionale Atmung. Stark.'; text = 'Dein System kann zwischen Vollgas und Ruhe wechseln. Das ist eine Ressource, die viele Unternehmer irgendwann verlieren, ohne es zu merken. Halt sie mit regelmäßigem Training, dann trägt sie dich auch durch die heißen Phasen.'; }
     document.getElementById('result-head').textContent = head;
@@ -341,7 +316,12 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
     document.querySelectorAll('.scale span').forEach(function(s){ s.classList.toggle('is-you', s.getAttribute('data-band') == band); });
     formSec.hidden = true;
     var res = document.getElementById('ergebnis'); res.hidden = false;
-    document.getElementById('session').hidden = !(rolle === 'Unternehmer mit Team' || rolle === 'Selbstständig mit Kunden');
+    var sess = document.getElementById('session'), alarm = band === 0;
+    sess.hidden = !(alarm || rolle === 'Unternehmer mit Team' || rolle === 'Selbstständig mit Kunden');
+    document.getElementById('session-title').textContent = alarm ? 'Lass uns direkt reden.' : 'Du trägst eine Entscheidung mit dir rum?';
+    document.getElementById('session-text').textContent = alarm
+      ? 'Bei diesem Wert würde ich nicht allein weitermachen. In der Navigation Session schauen wir in 45 Minuten gemeinsam drauf, was dich gerade so unter Druck setzt und was dein nächster Schritt ist. Wir reden, und wir atmen.'
+      : 'Dein Atem zeigt, wie viel Druck auf deinem System liegt. In der Navigation Session schauen wir gemeinsam auf die Entscheidung, die dich gerade festhält. Wir reden, und wir atmen. Du gehst mit mehr Klarheit raus.';
     res.scrollIntoView({behavior:'smooth', block:'start'}); res.focus({preventScroll:true});
   }
 })();
