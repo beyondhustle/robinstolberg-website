@@ -1,3 +1,7 @@
+# Serverlose Funktionen (z.B. BOLT Test Anmeldung an SendFox)
+[functions]
+  directory = "netlify/functions"
+
 # Netlify Konfiguration für robinstolberg.de
 # Netlify unterscheidet bei Pfaden zwischen Gross und Kleinschreibung.
 # Deshalb sind alle Dateinamen klein geschrieben.

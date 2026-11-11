@@ -62,6 +62,19 @@ Jede Übernahme in den Zweig main ist eine Veröffentlichung. Deshalb Änderunge
 
 Der Ordner "Robins Webseite Infrastruktur" auf dem Schreibtisch ist nur noch eine Kopie. Nicht mehr per Drag and Drop hochladen, sonst überschreibt er die Version aus GitHub.
 
+## BOLT Test (robinstolberg.de/test)
+
+Lead Magnet mit Video, Stoppuhr, Formular und Ergebnis. Die Anmeldung läuft über die Netlify Function `netlify/functions/bolt-signup.mjs` (Adresse `/api/bolt`) an die SendFox API.
+
+In Netlify unter Project configuration, Environment variables (nie ins Repository schreiben):
+
+* `SENDFOX_TOKEN` persönlicher API Token aus SendFox (Pflicht)
+* `SENDFOX_LIST_ID` ID der Liste (optional; ohne sie nimmt die Funktion die Liste, deren Name "Beyond Hustle" enthält)
+
+Tags: `bolt-unter-20`, `bolt-20-30`, `bolt-ueber-30`, und `Freiheitspaket 2026` bei Aufruf mit `?quelle=freiheitspaket`. Fehlt ein Tag in SendFox, legt die Funktion ihn an.
+
+Video: `assets/bolt-test.mp4` mit Vorschaubild `assets/bolt-test-poster.jpg`. Es lädt erst, wenn jemand auf Abspielen tippt.
+
 ## Sound Alchemy Zahlung
 
 Der Kaufbutton verweist auf den Stripe Payment Link https://buy.stripe.com/cNi9AUgjOcjr39IcT167S01 (199 Euro, Gutscheincodes aktiv). Preise und Gutscheine werden in Stripe gepflegt, nicht auf der Seite. Der Preis 199 Euro steht zusätzlich im Text der Seite und muss bei einer Preisänderung in `sound-alchemy/index.html` angepasst werden.

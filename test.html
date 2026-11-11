@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOLT Test: Wie viel Stress steckt in deinem System? | Robin Stolberg</title>
+<meta name="description" content="Der Atemtest, den Spitzensportler und Unternehmer als KPI nutzen. Dauert eine Minute.">
+<link rel="canonical" href="https://robinstolberg.de/test">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Robin Stolberg">
+<meta property="og:title" content="Wie viel Stress steckt in deinem System?">
+<meta property="og:description" content="Der Atemtest, den Spitzensportler und Unternehmer als KPI nutzen. Dauert eine Minute.">
+<meta property="og:url" content="https://robinstolberg.de/test">
+<meta property="og:image" content="https://robinstolberg.de/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#F5EFE4;--sand:#E4D9CA;--dark:#17150f;--mid:#1e1c14;--terra:#B8925A;--terra-l:#CFAE78;--muted:#8B7B6A;--text:#1A1208}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:var(--terra)}
+a:hover{color:var(--terra-l)}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+
+/* Navigation */
+nav{position:fixed;inset:0 0 auto;z-index:100;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;background:rgba(23,17,13,.9);backdrop-filter:blur(14px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:500;color:var(--cream);text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.nav-logo:hover{color:var(--cream)}
+
+/* Bausteine */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;min-height:48px;background:var(--terra);color:var(--dark);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;border-radius:40px;cursor:pointer;transition:background .22s,transform .22s}
+.btn:hover{background:var(--terra-l);color:var(--dark);transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.btn[disabled]{opacity:.6;cursor:default;transform:none}
+.sec-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:16px;display:block}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,8vw,48px);font-weight:500;line-height:1.12;color:var(--text)}
+.dark .sec-title{color:var(--cream)}
+section{padding:64px 24px;scroll-margin-top:64px}
+.wrap{max-width:680px;margin:0 auto}
+.lead{font-size:17px;font-weight:300;line-height:1.75;color:rgba(26,18,8,.75);margin-top:16px}
+.dark{background:var(--dark);color:var(--cream)}
+.dark .lead{color:rgba(245,239,228,.75)}
+
+/* Hero */
+#hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;background:#000;padding:110px 24px 56px}
+#hero::before{content:'';position:absolute;inset:0;background:url('assets/gipfel-nebelmeer-1200.webp') center/cover}
+#hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,21,15,.5) 0%,rgba(23,21,15,.75) 55%,rgba(23,21,15,.94) 100%)}
+.hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;width:100%}
+.hero-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-l);font-weight:600;margin-bottom:18px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,76px);font-weight:500;line-height:1.05;color:var(--cream);margin-bottom:22px}
+.hero-sub{font-size:18px;font-weight:300;color:rgba(245,239,228,.82);line-height:1.7;margin-bottom:32px;max-width:520px}
+
+/* Video und Anleitung */
+.video{margin:28px auto 0;width:100%;max-width:340px;aspect-ratio:9/16;background:var(--dark);border-radius:6px;overflow:hidden}
+.video video{display:block;width:100%;height:100%;object-fit:cover;background:var(--dark)}
+.steps{list-style:none;counter-reset:s;margin-top:36px;display:flex;flex-direction:column;gap:22px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;font-size:17px;font-weight:300;line-height:1.6}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;border:1px solid var(--terra);color:var(--terra);display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500}
+.steps strong{font-weight:500}
+.note{margin-top:28px;padding:18px 20px;border-left:2px solid var(--terra);background:rgba(184,146,90,.08);font-size:15px;line-height:1.65}
+
+/* Wert eintragen */
+#stoppuhr{text-align:center}
+.entry{margin:32px auto 0;max-width:320px;display:flex;flex-direction:column;align-items:center}
+.entry input{width:100%;height:150px;border:none;border-bottom:1px solid rgba(245,239,228,.25);background:transparent;color:var(--cream);font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(96px,30vw,140px);line-height:1;text-align:center;font-variant-numeric:tabular-nums;-moz-appearance:textfield;border-radius:0}
+.entry input::-webkit-outer-spin-button,.entry input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.entry input::placeholder{color:rgba(245,239,228,.18)}
+.entry input:focus{outline:none;border-bottom-color:var(--terra)}
+.timer-unit{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra-l);font-weight:600;margin-top:12px}
+.entry-hint{font-size:14px;color:rgba(245,239,228,.55);margin:18px 0 26px}
+.entry .btn{width:100%}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Formular */
+.score-pill{display:inline-block;padding:6px 16px;border-radius:40px;background:rgba(184,146,90,.14);color:var(--text);font-size:14px;margin-bottom:18px}
+.score-pill strong{font-weight:600}
+form{margin-top:28px;display:flex;flex-direction:column;gap:18px}
+.field label,.legend{display:block;font-size:14px;font-weight:500;margin-bottom:8px}
+.field input{width:100%;height:50px;padding:0 16px;border:1px solid rgba(26,18,8,.18);border-radius:6px;background:#fff;color:var(--text);font-family:inherit;font-size:16px}
+fieldset{border:none}
+.choices{display:flex;flex-direction:column;gap:10px}
+.choice{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid rgba(26,18,8,.18);border-radius:6px;background:#fff;cursor:pointer;font-size:15px;line-height:1.4}
+.choice input{accent-color:var(--terra);width:18px;height:18px;flex:none}
+.choice:has(input:checked){border-color:var(--terra);background:rgba(184,146,90,.08)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.55;color:rgba(26,18,8,.8);cursor:pointer}
+.consent input{accent-color:var(--terra);width:18px;height:18px;flex:none;margin-top:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-error{color:#9b2c1f;font-size:14px}
+form .btn{width:100%;margin-top:6px}
+
+/* Ergebnis */
+.result-head{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,64px);font-weight:500;line-height:1.05;color:var(--cream);margin-top:6px}
+.result-score{font-size:15px;color:var(--terra-l);margin-top:12px}
+.result-text{font-size:18px;font-weight:300;line-height:1.75;color:rgba(245,239,228,.82);margin-top:18px}
+.scale{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:28px}
+.scale span{font-size:12px;line-height:1.35;color:rgba(245,239,228,.5);padding-top:10px;border-top:3px solid rgba(245,239,228,.15)}
+.scale span.is-you{color:var(--cream);border-top-color:var(--terra)}
+.exercise{margin-top:40px;padding:26px 22px;border:1px solid rgba(184,146,90,.45);border-radius:6px}
+.exercise h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;line-height:1.15;color:var(--cream);margin-top:4px}
+.exercise p{font-size:16px;font-weight:300;line-height:1.7;color:rgba(245,239,228,.8);margin-top:12px}
+.inbox{margin-top:28px;font-size:15px;color:rgba(245,239,228,.75);line-height:1.65}
+.inbox strong{color:var(--cream);font-weight:500}
+
+/* Navigation Session */
+#session .btn{margin-top:28px}
+.facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.facts li{font-size:13px;padding:6px 14px;border:1px solid rgba(26,18,8,.15);border-radius:40px}
+
+footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
+.foot-top{padding:36px 24px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--cream)}
+.foot-nav{list-style:none;display:flex;gap:22px;flex-wrap:wrap}
+.foot-nav a{font-size:14px;color:rgba(245,239,228,.5);text-decoration:none}
+.foot-nav a:hover{color:var(--cream)}
+.foot-copy{display:block;font-size:12px;color:rgba(245,239,228,.25);padding:0 24px 28px}
+
+@media (min-width:961px){
+  nav{padding:22px 56px}
+  .nav-logo{font-size:21px}
+  section{padding:96px 72px}
+  #hero{padding:140px 72px 80px;align-items:center}
+  .foot-top{padding:44px 72px}
+  .foot-copy{padding:0 72px 28px}
+  .choices{display:grid;grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Robin Stolberg</a>
+</nav>
+
+<main>
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-label">BOLT Test</p>
+      <h1 class="hero-title">Wie viel Stress steckt in deinem System?</h1>
+      <p class="hero-sub">Der Atemtest, den Spitzensportler und Unternehmer als KPI nutzen. Dauert eine Minute.</p>
+      <a href="#anleitung" class="btn">Test starten</a>
+    </div>
+  </section>
+
+  <section id="anleitung">
+    <div class="wrap">
+      <span class="sec-label">So geht der Test</span>
+      <h2 class="sec-title">Die wichtigste KPI, die in keinem Dashboard steht.</h2>
+      <div class="video">
+        <video controls playsinline preload="none" poster="assets/bolt-test-poster.jpg" aria-label="Video: So machst du den BOLT Test">
+          <source src="assets/bolt-test.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="lead">Starte das Video und mach einfach mit. Es führt dich durch alle Schritte und zählt die Zeit für dich.</p>
+      <ol class="steps">
+        <li><span><strong>Setz dich aufrecht hin</strong> und komm kurz zur Ruhe.</span></li>
+        <li><span><strong>Atme ein paar Mal ganz normal</strong> durch die Nase ein und aus.</span></li>
+        <li><span><strong>Atme normal aus</strong>, nicht extra tief, nicht extra viel.</span></li>
+        <li><span><strong>Halte dir die Nase zu.</strong> Das Video zählt die Sekunden mit. Merk dir die Zahl, sobald du den ersten deutlichen Drang spürst einzuatmen.</span></li>
+      </ol>
+      <p class="note">Danach atmest du einfach normal weiter. Wenn du nach Luft schnappst, hast du zu lange gehalten. Es geht um den ersten deutlichen Drang, nicht um dein Maximum.</p>
+    </div>
+  </section>
+
+  <section id="stoppuhr" class="dark">
+    <div class="wrap">
+      <span class="sec-label">Dein Wert</span>
+      <h2 class="sec-title">Bei welcher Zahl kam der erste Drang einzuatmen?</h2>
+      <div class="entry">
+        <label for="manual-sec" class="visually-hidden">Deine Sekunden</label>
+        <input id="manual-sec" type="number" inputmode="numeric" min="1" max="300" step="1" placeholder="0" aria-describedby="entry-hint">
+        <div class="timer-unit">Sekunden</div>
+        <p class="entry-hint" id="entry-hint">Kein Drang, bis das Video endet? Dann trag 40 ein.</p>
+        <button type="button" class="btn" id="manual-ok">Weiter zu meinem Ergebnis</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="formular" hidden>
+    <div class="wrap">
+      <span class="score-pill">Dein Wert: <strong id="score-show">0</strong> Sekunden</span>
+      <h2 class="sec-title">Wohin dürfen wir dir deine Auswertung schicken?</h2>
+      <p class="lead">Du bekommst sofort dein Ergebnis hier auf der Seite und die ausführliche Auswertung per E-Mail.</p>
+      <form id="bolt-form" novalidate>
+        <div class="field">
+          <label for="vorname">Vorname</label>
+          <input id="vorname" name="vorname" type="text" autocomplete="given-name" required maxlength="60">
+        </div>
+        <div class="field">
+          <label for="email">E-Mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120">
+        </div>
+        <fieldset>
+          <legend class="legend">Was beschreibt dich am besten?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="rolle" value="Unternehmer mit Team" required>Unternehmer mit Team</label>
+            <label class="choice"><input type="radio" name="rolle" value="Selbstständig mit Kunden">Selbstständig mit Kunden</label>
+            <label class="choice"><input type="radio" name="rolle" value="Nebenberuflich selbstständig">Nebenberuflich selbstständig</label>
+            <label class="choice"><input type="radio" name="rolle" value="Angestellt">Angestellt</label>
+          </div>
+        </fieldset>
+        <label class="consent"><input type="checkbox" name="einwilligung" required><span>Ja, ich möchte meine Auswertung und den Newsletter von Robin Stolberg per E-Mail erhalten. Abmeldung jederzeit möglich. Mehr dazu in der <a href="/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span></label>
+        <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+        <button type="submit" class="btn" id="submit">Ergebnis anzeigen</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="ergebnis" class="dark" hidden tabindex="-1">
+    <div class="wrap">
+      <span class="sec-label">Dein Ergebnis</span>
+      <h2 class="result-head" id="result-head"></h2>
+      <p class="result-score" id="result-score"></p>
+      <p class="result-text" id="result-text"></p>
+      <div class="scale" aria-hidden="true">
+        <span data-band="0">unter 10 s<br>Alarm</span>
+        <span data-band="1">10 bis 19 s<br>Stressatmung</span>
+        <span data-band="2">20 bis 30 s<br>auf dem Weg</span>
+        <span data-band="3">über 30 s<br>funktional</span>
+      </div>
+      <div class="exercise">
+        <span class="sec-label">Deine Übung für heute</span>
+        <h3>4 ein, 6 aus, vier Minuten.</h3>
+        <p>Atme vier Sekunden durch die Nase ein und sechs Sekunden durch die Nase aus. Ruhig und leise, ohne Pause dazwischen. Vier Minuten lang. Die längere Ausatmung bremst dein System spürbar runter.</p>
+      </div>
+      <p class="inbox"><strong>Deine ausführliche Auswertung ist in deinem Postfach.</strong> Falls du sie nicht findest, schau kurz im Spam Ordner nach.</p>
+    </div>
+  </section>
+
+  <section id="session" hidden>
+    <div class="wrap">
+      <span class="sec-label">Free Navigation Session</span>
+      <h2 class="sec-title" id="session-title">Du trägst eine Entscheidung mit dir rum?</h2>
+      <p class="lead" id="session-text">Dein Atem zeigt, wie viel Druck auf deinem System liegt. In der Navigation Session schauen wir gemeinsam auf die Entscheidung, die dich gerade festhält. Wir reden, und wir atmen. Du gehst mit mehr Klarheit raus.</p>
+      <ul class="facts"><li>45 Minuten</li><li>online</li><li>kostenlos</li><li>für Unternehmer und Selbstständige</li></ul>
+      <a href="/private-session" class="btn">Navigation Session anfragen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-top">
+    <span class="foot-logo">Robin Stolberg</span>
+    <ul class="foot-nav">
+      <li><a href="/">Startseite</a></li>
+      <li><a href="/impressum">Impressum</a></li>
+      <li><a href="/datenschutz">Datenschutz</a></li>
+    </ul>
+  </div>
+  <span class="foot-copy">© 2026 Robin Stolberg · Beyond Hustle</span>
+</footer>
+
+<script>
+(function(){
+  var params = new URLSearchParams(location.search);
+  var quelle = (params.get('quelle') || '').toLowerCase();
+
+  var manual = document.getElementById('manual-sec'), manualOk = document.getElementById('manual-ok');
+  var formSec = document.getElementById('formular'), scoreShow = document.getElementById('score-show');
+  var score = 0;
+
+  function showForm(sec){
+    score = sec; scoreShow.textContent = sec;
+    formSec.hidden = false;
+    setTimeout(function(){ formSec.scrollIntoView({behavior:'smooth', block:'start'}); }, 350);
+  }
+  function useManual(){
+    var n = parseInt(manual.value, 10);
+    if (!(n >= 1 && n <= 300)) { manual.focus(); manual.setCustomValidity('Bitte eine Zahl zwischen 1 und 300 eintragen.'); manual.reportValidity(); return; }
+    manual.setCustomValidity(''); manual.blur(); showForm(n);
+  }
+  manualOk.addEventListener('click', useManual);
+  manual.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); useManual(); } });
+  manual.addEventListener('input', function(){ manual.setCustomValidity(''); });
+
+  var form = document.getElementById('bolt-form'), err = document.getElementById('form-error'), btn = document.getElementById('submit');
+  function fail(msg){ err.textContent = msg; err.hidden = false; }
+  form.addEventListener('submit', async function(e){
+    e.preventDefault(); err.hidden = true;
+    var fd = new FormData(form);
+    var vorname = (fd.get('vorname') || '').toString().trim();
+    var email = (fd.get('email') || '').toString().trim();
+    var rolle = fd.get('rolle');
+    if (!vorname) return fail('Bitte gib deinen Vornamen ein.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Bitte gib eine gültige E-Mail Adresse ein.');
+    if (!rolle) return fail('Bitte wähle aus, was dich am besten beschreibt.');
+    if (!fd.get('einwilligung')) return fail('Bitte bestätige die Einwilligung, damit wir dir die Auswertung schicken können.');
+    if (!(score >= 1)) return fail('Bitte trag zuerst deinen Wert ein.');
+    btn.disabled = true; btn.textContent = 'Einen Moment';
+    try {
+      var r = await fetch('/api/bolt', { method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ vorname: vorname, email: email, rolle: rolle, sekunden: score, einwilligung: true, quelle: quelle, website: fd.get('website') || '' }) });
+      var data = await r.json().catch(function(){ return {}; });
+      if (!r.ok || !data.ok) throw new Error(data.error || 'Fehler');
+      showResult(rolle);
+    } catch (x) {
+      fail('Das hat leider nicht geklappt. Bitte versuch es gleich noch einmal.');
+      btn.disabled = false; btn.textContent = 'Ergebnis anzeigen';
+    }
+  });
+
+  function showResult(rolle){
+    var band, head, text;
+    if (score < 10) { band = 0; head = 'Alarmstufe Rot.'; text = 'Unter 10 Sekunden heißt: Dein System steht unter Dauerstrom. Das ist ein Wert, den du nicht nebenbei weg trainierst, während du weiter Vollgas gibst. Ich kenne Phasen, in denen ich genau so funktioniert habe, und rückblickend war das der Moment, an dem ich hätte anhalten müssen. Nimm diese Zahl ernst.'; }
+    else if (score < 20) { band = 1; head = 'Stressatmung.'; text = 'Dein System läuft auf Gaspedal. Du lieferst, entscheidest und hältst alles am Laufen, und dein Körper zahlt dafür mit Daueralarm. Ich kenne das von mir, lange hab ich genau das Leistung genannt. Die gute Nachricht: Diese KPI lässt sich trainieren, schneller als die meisten Zahlen in deinem Business.'; }
+    else if (score <= 30) { band = 2; head = 'Auf dem Weg.'; text = 'Die Basis steht, aber da geht noch einiges. Unter Druck brauchst du wahrscheinlich länger, um wieder runterzukommen, als dir lieb ist. Mit ein paar Minuten Training am Tag bewegt sich diese KPI spürbar, und mit ihr deine Klarheit bei Entscheidungen.'; }
+    else { band = 3; head = 'Funktionale Atmung. Stark.'; text = 'Dein System kann zwischen Vollgas und Ruhe wechseln. Das ist eine Ressource, die viele Unternehmer irgendwann verlieren, ohne es zu merken. Halt sie mit regelmäßigem Training, dann trägt sie dich auch durch die heißen Phasen.'; }
+    document.getElementById('result-head').textContent = head;
+    document.getElementById('result-score').textContent = 'Dein Wert: ' + score + ' Sekunden';
+    document.getElementById('result-text').textContent = text;
+    document.querySelectorAll('.scale span').forEach(function(s){ s.classList.toggle('is-you', s.getAttribute('data-band') == band); });
+    formSec.hidden = true;
+    var res = document.getElementById('ergebnis'); res.hidden = false;
+    var sess = document.getElementById('session'), alarm = band === 0;
+    sess.hidden = !(alarm || rolle === 'Unternehmer mit Team' || rolle === 'Selbstständig mit Kunden');
+    document.getElementById('session-title').textContent = alarm ? 'Lass uns direkt reden.' : 'Du trägst eine Entscheidung mit dir rum?';
+    document.getElementById('session-text').textContent = alarm
+      ? 'Bei diesem Wert würde ich nicht allein weitermachen. In der Navigation Session schauen wir in 45 Minuten gemeinsam drauf, was dich gerade so unter Druck setzt und was dein nächster Schritt ist. Wir reden, und wir atmen.'
+      : 'Dein Atem zeigt, wie viel Druck auf deinem System liegt. In der Navigation Session schauen wir gemeinsam auf die Entscheidung, die dich gerade festhält. Wir reden, und wir atmen. Du gehst mit mehr Klarheit raus.';
+    res.scrollIntoView({behavior:'smooth', block:'start'}); res.focus({preventScroll:true});
+  }
+})();
+</script>
+</body>
+</html>
