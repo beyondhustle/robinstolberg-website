@@ -56,9 +56,8 @@ section{padding:64px 24px;scroll-margin-top:64px}
 .hero-sub{font-size:18px;font-weight:300;color:rgba(245,239,228,.82);line-height:1.7;margin-bottom:32px;max-width:520px}
 
 /* Video und Anleitung */
-.video{position:relative;aspect-ratio:16/9;margin-top:28px;background:var(--mid);border-radius:4px;overflow:hidden}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-soon{position:absolute;inset:0;display:grid;place-items:center;color:rgba(245,239,228,.55);font-size:14px;letter-spacing:.08em;text-align:center;padding:16px}
+.video{margin:28px auto 0;width:100%;max-width:340px;aspect-ratio:9/16;background:var(--dark);border-radius:6px;overflow:hidden}
+.video video{display:block;width:100%;height:100%;object-fit:cover;background:var(--dark)}
 .steps{list-style:none;counter-reset:s;margin-top:36px;display:flex;flex-direction:column;gap:22px}
 .steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;font-size:17px;font-weight:300;line-height:1.6}
 .steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;border:1px solid var(--terra);color:var(--terra);display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500}
@@ -156,8 +155,10 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
     <div class="wrap">
       <span class="sec-label">So geht der Test</span>
       <h2 class="sec-title">Eine Minute, eine Zahl, die viel über dich verrät.</h2>
-      <div class="video" id="video">
-        <div class="video-soon">Video folgt</div>
+      <div class="video">
+        <video controls playsinline preload="none" poster="assets/bolt-test-poster.jpg" aria-label="Video: So machst du den BOLT Test">
+          <source src="assets/bolt-test.mp4" type="video/mp4">
+        </video>
       </div>
       <ol class="steps">
         <li><span><strong>Setz dich aufrecht hin</strong> und komm kurz zur Ruhe.</span></li>
@@ -265,16 +266,8 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 
 <script>
 (function(){
-  /* YouTube: hier nur die Video ID eintragen, zum Beispiel "dQw4w9WgXcQ" */
-  var YOUTUBE_ID = "";
-
   var params = new URLSearchParams(location.search);
   var quelle = (params.get('quelle') || '').toLowerCase();
-
-  if (YOUTUBE_ID) {
-    var v = document.getElementById('video');
-    v.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(YOUTUBE_ID) + '?rel=0&modestbranding=1&playsinline=1" title="BOLT Test Anleitung" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
-  }
 
   var timerEl = document.getElementById('timer'), go = document.getElementById('go'), reset = document.getElementById('reset');
   var manual = document.getElementById('manual-sec'), manualOk = document.getElementById('manual-ok');

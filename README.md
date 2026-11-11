@@ -64,16 +64,16 @@ Der Ordner "Robins Webseite Infrastruktur" auf dem Schreibtisch ist nur noch ein
 
 ## BOLT Test (robinstolberg.de/test)
 
-Lead Magnet mit Stoppuhr, Formular und Ergebnis. Die Anmeldung läuft über die Netlify Function `netlify/functions/bolt-signup.mjs` (Adresse `/api/bolt`) an die SendFox API.
+Lead Magnet mit Video, Stoppuhr, Formular und Ergebnis. Die Anmeldung läuft über die Netlify Function `netlify/functions/bolt-signup.mjs` (Adresse `/api/bolt`) an die SendFox API.
 
-In Netlify unter Project configuration, Environment variables müssen gesetzt sein (nie ins Repository schreiben):
+In Netlify unter Project configuration, Environment variables (nie ins Repository schreiben):
 
-* `SENDFOX_TOKEN` persönlicher API Token aus SendFox
-* `SENDFOX_LIST_ID` ID der Liste
+* `SENDFOX_TOKEN` persönlicher API Token aus SendFox (Pflicht)
+* `SENDFOX_LIST_ID` ID der Liste (optional; ohne sie nimmt die Funktion die Liste, deren Name "Beyond Hustle" enthält)
 
-In SendFox müssen diese Tags mit genau diesem Namen existieren: `bolt-unter-20`, `bolt-20-30`, `bolt-ueber-30`, `Freiheitspaket 2026`. Der letzte wird gesetzt, wenn die Seite mit `?quelle=freiheitspaket` aufgerufen wird.
+Tags: `bolt-unter-20`, `bolt-20-30`, `bolt-ueber-30`, und `Freiheitspaket 2026` bei Aufruf mit `?quelle=freiheitspaket`. Fehlt ein Tag in SendFox, legt die Funktion ihn an.
 
-Das YouTube Video wird in `test.html` über `YOUTUBE_ID` eingetragen.
+Video: `assets/bolt-test.mp4` mit Vorschaubild `assets/bolt-test-poster.jpg`. Es lädt erst, wenn jemand auf Abspielen tippt.
 
 ## Sound Alchemy Zahlung
 
