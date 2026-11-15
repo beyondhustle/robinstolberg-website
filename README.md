@@ -50,6 +50,8 @@ Stehen in `netlify.toml`. Neue Kurzlinks dort als weiteren Block `[[redirects]]`
 
 Die Events auf der Startseite stehen als Liste `const events = [` in `index.html` (etwa Zeile 1838). Nur dort Datum, Titel und Link ändern. Der Rest baut sich automatisch.
 
+Wichtig: Bei jeder Event Änderung auch `linktree.html` anpassen. Dort steht das nächste Event als eigene Karte "Nächstes Event" ganz oben (fest im HTML, wird nicht aus der Liste gebaut).
+
 ## Veröffentlichen
 
 Die Seite liegt im privaten GitHub Repository beyondhustle/robinstolberg-website. Netlify (Projekt stately-sunflower-4d2666) ist damit verbunden.
