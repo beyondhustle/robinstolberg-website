@@ -39,7 +39,8 @@ section{padding:96px 72px}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:flex-end;position:relative;background:#000;padding:140px 72px 80px}
-#hero::before{content:'';position:absolute;inset:0;background:url('assets/gipfel-nebelmeer.webp') center/cover}
+#hero::before{content:'';position:absolute;inset:0;background:url('assets/workshop-weggabelung.webp') center/cover}
+@media (max-width:960px){#hero::before{background-image:url('assets/workshop-weggabelung-mobil.webp');background-position:center 40%}}
 #hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,21,15,.55) 0%,rgba(23,21,15,.75) 60%,rgba(23,21,15,.92) 100%)}
 .hero-inner{position:relative;z-index:1;max-width:680px}
 .hero-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-l);font-weight:600;margin-bottom:22px}
@@ -182,8 +183,11 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
   <div class="worum-text">
     <p>Da ist diese eine Entscheidung, die du seit Wochen vor dir herschiebst. Du machst Listen, redest mit Freunden darüber, wägst ab. Und kommst keinen Meter weiter.</p>
     <p>Eine Entscheidung fühlt sich selten schwer an, weil sie kompliziert ist. Meistens liegt ein Gefühl drunter, das du nicht fühlen willst. Wut, Schiss, Trauer. Und genau dieses Gefühl entscheidet im Hintergrund mit.</p>
+    <p>Als Unternehmer hast du gelernt, rational zu bleiben. Also schiebst du das Gefühl weg. Weg ist es damit aber nicht. Es kommt zurück als Aufschieben, als Grübeln, als dieses diffuse Gefühl, dass irgendwas nicht stimmt.</p>
+    <p>Von außen sieht das aus wie ein Logikproblem. Dahinter steckt ein Gefühl, das sich als Logikproblem tarnt. Und je länger du es ignorierst, desto lauter wird es.</p>
+    <p>Mehr Nachdenken bringt dich da nicht raus. Das Feststecken zeigt dir die Stelle, an der du nicht weiterfühlen willst.</p>
     <p class="worum-me">Ich kenn das von mir. Solange der Laptop offen ist, muss ich meine Wut nicht spüren oder meine Trauer.</p>
-    <p>An diesem Abend gehen wir da ran. Mit Breathwork und Sound raus aus dem Kopf und rein in den Körper.</p>
+    <p>An diesem Abend gehen wir da ran. Statt das Gefühl wegzudrücken, hörst du hin, was es dir sagen will. Mit Breathwork und Sound raus aus dem Kopf und rein in den Körper.</p>
   </div>
   </div>
   <img class="worum-ill" src="assets/workshop-robin-entscheidung.webp" alt="Zeichnung: Robin sitzt mit Kopfhörern und Hand auf der Brust vor einem Weg, der sich in zwei Richtungen teilt" width="960" height="1192" loading="lazy">
