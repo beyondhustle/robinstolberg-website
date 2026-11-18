@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workshop: Wie deine Emotionen im Hintergrund deine Entscheidungen steuern | Robin Stolberg</title>
-<meta name="description" content="Online Workshop mit Breathwork und Sound für Unternehmer. Donnerstag, 26. November, 19 Uhr. Bring eine Entscheidung mit und geh mit deinem nächsten Schritt raus.">
+<title>Inner Workshop: Wie deine Emotionen im Hintergrund deine Entscheidungen steuern | Robin Stolberg</title>
+<meta name="description" content="Online Inner Workshop mit Breathwork und Sound für Unternehmer. Donnerstag, 26. November, 19 Uhr. Bring eine Entscheidung mit und geh mit deinem nächsten Schritt raus.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Robin Stolberg">
 <meta property="og:title" content="Wie deine Emotionen im Hintergrund deine Entscheidungen steuern">
-<meta property="og:description" content="Online Workshop mit Breathwork und Sound für Unternehmer. Donnerstag, 26. November, 19 Uhr.">
+<meta property="og:description" content="Online Inner Workshop mit Breathwork und Sound für Unternehmer. Donnerstag, 26. November, 19 Uhr.">
 <meta property="og:url" content="https://robinstolberg.de/workshop">
 <meta property="og:image" content="https://robinstolberg.de/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -162,7 +162,7 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 
 <section id="hero">
   <div class="hero-inner">
-    <p class="hero-label">ONLINE WORKSHOP · BREATHWORK UND SOUND · FÜR UNTERNEHMER</p>
+    <p class="hero-label">ONLINE INNER WORKSHOP · BREATHWORK UND SOUND · FÜR UNTERNEHMER</p>
     <h1 class="hero-title">Wie deine Emotionen im Hintergrund deine Entscheidungen steuern.</h1>
     <p class="hero-sub">Ein Abend für Unternehmer und Selbstständige, die wissen, was sie tun müssten, und es nicht tun. Die nicht länger von Gefühlen gesteuert werden wollen, die sie gar nicht bemerken, und wieder klare Entscheidungen treffen wollen, im Business und privat. Du bringst eine Entscheidung mit und gehst mit deinem nächsten Schritt raus.</p>
     <div class="hero-meta">
@@ -252,7 +252,7 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
       <label for="w-email">E-Mail</label>
       <input type="email" id="w-email" name="email" autocomplete="email" placeholder="deine@email.de" required>
     </div>
-    <label class="consent"><input type="checkbox" name="einwilligung" required><span>Ja, ich möchte Infos zum Workshop und den Newsletter von Robin Stolberg per E-Mail erhalten. Abmeldung jederzeit möglich. Mehr dazu in der <a href="/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span></label>
+    <label class="consent"><input type="checkbox" name="einwilligung" required><span>Ja, ich möchte Infos zum Inner Workshop und den Newsletter von Robin Stolberg per E-Mail erhalten. Abmeldung jederzeit möglich. Mehr dazu in der <a href="/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span></label>
     <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
     <p class="form-error" id="form-error" role="alert" hidden></p>
     <button type="submit" class="btn" id="submit">Weiter zur Anmeldung</button>
@@ -311,7 +311,7 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
     var email = (fd.get('email') || '').toString().trim();
     if (!vorname) return fail('Bitte gib deinen Vornamen ein.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Bitte gib eine gültige E-Mail Adresse ein.');
-    if (!fd.get('einwilligung')) return fail('Bitte bestätige die Einwilligung, damit ich dir die Infos zum Workshop schicken kann.');
+    if (!fd.get('einwilligung')) return fail('Bitte bestätige die Einwilligung, damit ich dir die Infos zum Inner Workshop schicken kann.');
     btn.disabled = true; btn.textContent = 'Einen Moment';
     try {
       var r = await fetch('/api/workshop', { method:'POST', headers:{'Content-Type':'application/json'},
