@@ -7,20 +7,24 @@
 # Deshalb sind alle Dateinamen klein geschrieben.
 
 # Kurzlinks auf die Guides (zum Beispiel für Mails und Danke Seiten)
+# Beide Guides sind jetzt eigene Seiten (live-breathwork-guide.html, online-breathwork-guide.html).
+# Alte PDF Links landen auf den Seiten, damit niemand die alte Fassung bekommt.
 [[redirects]]
-  from = "/live-breathwork-guide"
-  to = "/live-breathwork-guide.pdf"
+  from = "/live-breathwork-guide.pdf"
+  to = "/live-breathwork-guide"
   status = 301
+  force = true
 
 [[redirects]]
-  from = "/online-breathwork-guide"
-  to = "/online-breathwork-guide.pdf"
+  from = "/online-breathwork-guide.pdf"
+  to = "/online-breathwork-guide"
   status = 301
+  force = true
 
 # Alter Dateiname mit Grossbuchstaben, damit bereits verschickte Links weiter funktionieren
 [[redirects]]
   from = "/Online-Breathwork-Guide.pdf"
-  to = "/online-breathwork-guide.pdf"
+  to = "/online-breathwork-guide"
   status = 301
 
 # Danke Seite für Käufer des BreathWorking Space.
