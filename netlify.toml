@@ -36,3 +36,10 @@
   to = "https://superb-marshmallow-ad336f.netlify.app/"
   status = 200
   force = true
+
+# Workshop Seite heißt jetzt /inner-workshop. Bereits geteilte Links auf /workshop landen dort.
+[[redirects]]
+  from = "/workshop"
+  to = "/inner-workshop"
+  status = 301
+  force = true
