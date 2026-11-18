@@ -130,6 +130,9 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 #worum{background:var(--cream)}
 .worum-text{max-width:620px;margin-top:28px;display:flex;flex-direction:column;gap:18px;font-size:18px;font-weight:300;line-height:1.75}
 .worum-text .worum-me{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;line-height:1.4;color:var(--text)}
+.worum-wrap{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:64px;align-items:center;max-width:1120px}
+.worum-ill{width:100%;height:auto;display:block;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 55%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 70% at 50% 55%,#000 62%,transparent 100%)}
+@media (max-width:960px){.worum-wrap{grid-template-columns:1fr;gap:8px}.worum-ill{max-width:380px;margin:0 auto}}
 #robin{background:var(--cream)}
 .robin-wrap{display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:center;max-width:1040px}
 .robin-photo{width:100%;border-radius:4px;object-fit:cover;aspect-ratio:4/5}
@@ -172,6 +175,8 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 </section>
 
 <section id="worum">
+  <div class="worum-wrap">
+  <div>
   <span class="sec-label">WORUM ES GEHT</span>
   <h2 class="sec-title">Du weißt, was du tun müsstest.<br>Und tust es nicht.</h2>
   <div class="worum-text">
@@ -179,6 +184,9 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
     <p>Eine Entscheidung fühlt sich selten schwer an, weil sie kompliziert ist. Meistens liegt ein Gefühl drunter, das du nicht fühlen willst. Wut, Schiss, Trauer. Und genau dieses Gefühl entscheidet im Hintergrund mit.</p>
     <p class="worum-me">Ich kenn das von mir. Solange der Laptop offen ist, muss ich meine Wut nicht spüren oder meine Trauer.</p>
     <p>An diesem Abend gehen wir da ran. Mit Breathwork und Sound raus aus dem Kopf und rein in den Körper.</p>
+  </div>
+  </div>
+  <img class="worum-ill" src="assets/workshop-robin-entscheidung.webp" alt="Zeichnung: Robin sitzt mit Kopfhörern und Hand auf der Brust vor einem Weg, der sich in zwei Richtungen teilt" width="960" height="1192" loading="lazy">
   </div>
 </section>
 
