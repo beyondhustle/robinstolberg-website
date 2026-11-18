@@ -142,6 +142,9 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 .preis{display:flex;align-items:baseline;gap:14px;margin:6px 0 30px}
 .preis-zahl{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;color:var(--text)}
 .preis-info{font-size:14px;color:var(--muted)}
+.preis-zahl{white-space:nowrap;flex:none}
+@media (max-width:600px){.preis{flex-direction:column;align-items:flex-start;gap:2px}.anfrage-head{margin-bottom:24px}}
+#anmeldung{scroll-margin-top:40px}
 .consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.55;color:rgba(26,18,8,.8);cursor:pointer}
 .consent input{accent-color:var(--terra);width:18px;height:18px;flex:none;margin-top:2px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
