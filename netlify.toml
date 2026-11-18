@@ -26,6 +26,7 @@
   from = "/Online-Breathwork-Guide.pdf"
   to = "/online-breathwork-guide"
   status = 301
+  force = true
 
 # Danke Seite für Käufer des BreathWorking Space.
 # Liegt bewusst in einem eigenen Netlify Projekt (nicht in diesem Repository),
