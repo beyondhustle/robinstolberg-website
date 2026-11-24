@@ -299,7 +299,7 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
       if (!r.ok || !data.ok) throw new Error(data.error || 'Fehler');
       showResult(rolle);
     } catch (x) {
-      fail('Das hat leider nicht geklappt. Bitte versuch es gleich noch einmal.');
+      fail(x && x.message === 'email' ? 'Bitte prüf deine E-Mail Adresse, da scheint ein Tippfehler drin zu sein.' : 'Das hat leider nicht geklappt. Bitte versuch es gleich noch einmal.');
       btn.disabled = false; btn.textContent = 'Ergebnis anzeigen';
     }
   });

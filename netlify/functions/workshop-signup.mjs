@@ -1,3 +1,19 @@
+
+// E-Mail Prüfung gegen Bounces: Domain muss einen Mailserver haben, häufige Tippfehler fallen raus.
+import { resolveMx } from "node:dns/promises";
+const TIPPFEHLER = new Set(["gmial.com","gmai.com","gamil.com","gnail.com","gmail.co","gmail.de","gmx.dee","gmx.ed","web.dee","wbe.de","hotmial.com","hotmai.com","outlok.com","outlook.co","yaho.com","yahoo.co","icloud.co","iclod.com","t-onlin.de","t-onlie.de","tonline.de"]);
+async function emailZustellbar(email) {
+  const domain = email.split("@")[1] || "";
+  if (TIPPFEHLER.has(domain)) return false;
+  try {
+    const mx = await Promise.race([resolveMx(domain), new Promise((_, rej) => setTimeout(() => rej(Object.assign(new Error("timeout"), { code: "TIMEOUT" })), 3000))]);
+    return Array.isArray(mx) && mx.some(r => r && r.exchange && r.exchange !== ".");
+  } catch (e) {
+    // Domain existiert nicht oder hat keinen Mailserver: ablehnen. Bei Netzproblemen lieber durchlassen.
+    return !["ENOTFOUND", "ENODATA", "ESERVFAIL", "ENONAME"].includes(e && e.code);
+  }
+}
+
 // Workshop Anmeldung: trägt Kontakte über die SendFox API in die Liste ein und setzt Tags,
 // bevor die Person zum Luma Checkout weitergeleitet wird.
 // Nutzt dieselben Umgebungsvariablen wie der BOLT Test (niemals ins Repository schreiben):
@@ -83,6 +99,7 @@ export async function handle(req, fetchImpl = fetch) {
   const workshop = String(d.workshop || "").trim().toLowerCase();
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 120) return json(400, { ok: false, error: "email" });
+  if (!(await emailZustellbar(email))) return json(400, { ok: false, error: "email" });
   if (!vorname) return json(400, { ok: false, error: "vorname" });
   if (!WORKSHOPS[workshop]) return json(400, { ok: false, error: "workshop" });
   if (d.einwilligung !== true) return json(400, { ok: false, error: "einwilligung" });
