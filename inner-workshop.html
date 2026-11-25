@@ -159,7 +159,7 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
   <ul class="nav-links">
     <li><a href="/#about">Über Robin</a></li>
     <li><a href="/#event">Events</a></li>
-    <li><a href="#anmeldung" class="btn">PLATZ SICHERN</a></li>
+    <li><a href="/private-session" class="btn">NAVIGATION SESSION</a></li>
   </ul>
 </nav>
 
@@ -169,12 +169,9 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
     <h1 class="hero-title">Wie deine Emotionen im Hintergrund deine Entscheidungen steuern.</h1>
     <p class="hero-sub">Ein Abend für Unternehmer und Selbstständige, die wissen, was sie tun müssten, und es nicht tun. Die nicht länger von Gefühlen gesteuert werden wollen, die sie gar nicht bemerken, und wieder klare Entscheidungen treffen wollen, im Business und privat. Du bringst eine Entscheidung mit und gehst mit deinem nächsten Schritt raus.</p>
     <div class="hero-meta">
-      <span>Donnerstag, 26. November</span>
-      <span>19:00 bis 20:30 Uhr</span>
-      <span>Online über Zoom</span>
-      <span>47 €</span>
+      <span>Der Termin am 26. November fällt leider aus</span>
     </div>
-    <a href="#anmeldung" class="btn">Platz sichern</a>
+    <a href="#anmeldung" class="btn">Mehr erfahren</a>
   </div>
 </section>
 
@@ -241,25 +238,12 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
 
 <section id="anmeldung">
   <div class="anfrage-head">
-    <span class="sec-label">PLATZ SICHERN</span>
-    <h2 class="sec-title">Bist du dabei?</h2>
-    <p class="anfrage-body">Trag dich hier ein. Danach geht es direkt weiter zur Anmeldung bei Luma, dort zahlst du dein Ticket und bekommst den Zoom Link.</p>
+    <span class="sec-label">ABGESAGT</span>
+    <h2 class="sec-title">Dieser Abend fällt aus.</h2>
+    <p class="anfrage-body">Den Inner Workshop am 26. November muss ich leider absagen. Wenn es einen neuen Termin gibt, erfährst du es zuerst über meinen Newsletter.</p>
+    <p class="anfrage-body">Du willst mit deiner Entscheidung nicht so lange warten? Dann buch dir eine kostenlose Navigation Session. 45 Minuten, online, wir schauen uns deine Entscheidung gemeinsam an.</p>
   </div>
-  <div class="preis"><span class="preis-zahl">47 €</span><span class="preis-info">Donnerstag, 26. November · 19:00 bis 20:30 Uhr · Begrenzte Plätze</span></div>
-  <form class="c-form" id="workshop-form" novalidate>
-    <div class="f-field">
-      <label for="w-vorname">Vorname</label>
-      <input type="text" id="w-vorname" name="vorname" autocomplete="given-name" required>
-    </div>
-    <div class="f-field">
-      <label for="w-email">E-Mail</label>
-      <input type="email" id="w-email" name="email" autocomplete="email" placeholder="deine@email.de" required>
-    </div>
-    <label class="consent"><input type="checkbox" name="einwilligung" required><span>Ja, ich möchte Infos zum Inner Workshop und den Newsletter von Robin Stolberg per E-Mail erhalten. Abmeldung jederzeit möglich. Mehr dazu in der <a href="/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span></label>
-    <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-    <p class="form-error" id="form-error" role="alert" hidden></p>
-    <button type="submit" class="btn" id="submit">Weiter zur Anmeldung</button>
-  </form>
+  <a href="/private-session" class="btn">Navigation Session buchen</a>
 </section>
 
 <section id="faq">
@@ -304,6 +288,7 @@ footer{background:var(--dark);border-top:1px solid rgba(245,239,228,.07)}
   var LUMA = 'https://luma.com/j3krcdzy';
 
   var form = document.getElementById('workshop-form'), err = document.getElementById('form-error'), btn = document.getElementById('submit');
+  if (!form) return;
   function fail(msg){ err.textContent = msg; err.hidden = false; }
   function weiter(){ location.href = LUMA; }
 
